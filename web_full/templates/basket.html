@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+<meta charset="UTF-8">
+<h2 align="center">Корзина</h2>
+{% for id in basket %}
+{% for name in catalog%}
+<div class="table_container">
+    <style> table {font-size: 17pt}</style>
+    {% if id.catalog_id == name.id %}
+    <table class="my_table" align="right" width="1000">
+        <tr class="my_row">
+            <td class="text-light bg-#003153" width="500px">Название</td>
+            <td class="text-light bg-#003153" width="100px" align="center">Количество</td>
+        </tr>
+        <tr class="my_row">
+            <td class="text-light bg-#003153">{{name.name}}</td>
+            <td class="text-light bg-#003153" align="center">
+                <form method="POST">
+                     <input name="guruweba_example_number" type="number" min="1" max=""/>
+                </form>
+            </td>
+        </tr>
+    </table>
+    {%else%}
+    <p>Пусто</p>
+</div>
+<br>
+{% endfor %}
+{% endfor %}
+
+{% endblock %}

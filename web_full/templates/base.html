@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="../static/css/style.css"/>
+    <title>{{title}}</title>
+</head>
+<body class="text-white">
+<style>
+  body { background: url(static/img/фон.jpg);}
+</style>
+<header>
+    <div class="text-light bg-#003153">
+        <h1 align="center">New Football</h1>
+        <hr>
+    </div>
+    {% if current_user.is_authenticated %}
+    <p align="right">
+        <a class="btn btn-success" href="/basket">
+            <img src="static/img/корзинаверх.png" alt="" style="vertical-align:middle">
+            {{"Корзина"}}
+        </a>
+        <a class="btn btn-success" href="/logout">
+            <img src="static/img/out.png" alt="" style="vertical-align:middle">
+            {{ current_user.name }}
+        </a>
+    </p>
+    {% else %}
+    <p align="right">
+        <a class="btn btn-outline-dark" href="/register">Регистрация</a>
+        <a class="btn btn-outline-dark" href="/login">Вход</a>
+    </p>
+    {% endif %}
+    <a class="navbar-brand" href="#"></a>
+</header>
+<!-- Begin page content -->
+<main role="main" class="container">
+    {% block content %}{% endblock %}
+</main>
+</body>
+</html>

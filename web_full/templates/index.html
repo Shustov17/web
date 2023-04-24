@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block content %}
+<meta charset="UTF-8">
+<h2 align="center">Каталог</h2>
+{% for name in catalog %}
+<div class="table_container">
+    <style> table {font-size: 17pt}</style>
+    <table class="my_table" align="right" width="1000">
+        <tr class="my_row">
+            <td class="text-light bg-#003153" width="15px">№</td>
+            <td class="text-light bg-#003153" width="500px">Название</td>
+            <td class="text-light bg-#003153" width="100px" align="center">Количество</td>
+        </tr>
+        <tr class="my_row">
+            <td class="text-light bg-#003153">{{name.id}}</td>
+            <td class="text-light bg-#003153">{{name.name}}</td>
+            <td class="text-light bg-#003153" align="center">{{name.catalog_kol}}</td>
+            <td>
+                <form>
+                     <a class="btn btn-success">
+                         <img src="static/img/корзина.png" alt="" style="vertical-align:middle">
+                         {{form.submit}}
+                     </a>
+                </form>
+            </td>
+        </tr>
+
+    </table>
+</div>
+<br>
+{% endfor %}
+
+{% endblock %}
